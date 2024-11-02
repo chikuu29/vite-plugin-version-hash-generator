@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true, // Ensure this is true to generate .d.ts files
+    "outDir": "dist",    // Output directory for compiled files
+    "rootDir": "src"     // Source directory for your TypeScript files
+  },
+  "include": ["src/**/*"],  // Include your source files
+  "exclude": ["node_modules", "dist"] // Exclude unwanted directories
+}

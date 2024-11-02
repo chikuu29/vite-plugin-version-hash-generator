@@ -1,0 +1,59 @@
+{
+  "name": "vite-plugin-version-hash-generator",
+  "version": "1.0.0",
+  "author": "Suryanarayan Biswal",
+  "description": "A Vite plugin to generate a version hash map.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10",
+    "typescript": "^5.6.3",
+    "@types/node": "^22.8.6"
+  },
+  "peerDependencies": {
+    "vite": "^5.0.0"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "release": "release-it",
+    "tarball": "rimraf tar && pnpm pack --pack-destination ./tar",
+    "analyze": "open ./reports/build-stats.html",
+    "clean": "pnpm rimraf reports dist node_modules/.vite node_modules/.cache",
+    "lint": "concurrently -g -n \"prettier,eslint\" -c \"bgGreen.bold,bgBlue.bold\" \"pnpm prettier-check\" \"pnpm eslint-check\"",
+    "lint:fix": "pnpm eslint-fix && pnpm prettier-fix",
+    "prettier-check": "prettier --loglevel warn --cache --cache-strategy content --cache-location ./node_modules/.cache/.prettiercache --check .",
+    "prettier-fix": "prettier --loglevel warn --cache --cache-strategy content --cache-location ./node_modules/.cache/.prettiercache --write .",
+    "eslint-check": "eslint --max-warnings=25 --format=pretty --cache --cache-strategy content --cache-location ./node_modules/.cache/.eslintcache '{**/*,*}.{js,ts}'",
+    "eslint-fix": "pnpm eslint-check --fix",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "cz": "czg"
+  },
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "versioning",
+    "hash",
+    "React"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chikuu29/vite-plugin-version-hash-generator.git"
+  },
+  "homepage": "https://github.com/chikuu29/vite-plugin-version-hash-generator.git",
+  "bugs": {
+    "url": "https://github.com/chikuu29/vite-plugin-version-hash-generator.git/issues"
+  }
+}
